@@ -1,0 +1,27 @@
+New learned: 
+task2: GPIO pins/functions
+task3: docker, 
+
+task1: provided corrdinates and timestamp of a unregistered signal captured by USCG
+	- task: given database.db (NSA database), fnid ID's of similar signals
+	* used: sqlite3 database.db
+	* IDs: 74, 499
+
+task2: USCG discovered the device transmitting the signal
+	- given a pinout.svg of the device and an img of its CPU 
+	- tasks: find the datasheet for the CPU and give pin numbers...
+		- to power the GPIO header
+			- a pin in the first 40
+			- issues: 5V too much, r.Pi's use 3.3V?
+			* a yellow pin
+		- to ground the board
+			- a pin in the first 40
+			* any ground pin
+		- for a UART transmit&receive 
+			- a pin in the additioanl 20
+			- issues: 36,37 incorrect
+			* select from any consecutive GPIO numbers for the UART transmit/receive functions TXD1/RXD1
+	* https://elinux.org/RPi_BCM2835_GPIOs#GPCLK2
+	* https://tc.gts3.org/cs3210/2020/spring/l/lec05/lec05.html#:~:text=About%20BCM2837&text=This%20is%20the%20Broadcom%20chip,Cortex%20A53%20(ARMv8)%20cluster.
+
+task3: the pins provided allowed communication with the device to create a filesystem dump
